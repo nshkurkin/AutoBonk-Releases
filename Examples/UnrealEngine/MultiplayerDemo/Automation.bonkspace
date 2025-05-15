@@ -1,0 +1,326 @@
+{
+  "$type": "BonkWorkspace",
+  "CommandCollections": [
+    {
+      "$type": "CommandCollection",
+      "Title": "New Command Group",
+      "SerializationMethod": "JSON",
+      "OwningUser": "",
+      "Variables": [],
+      "Commands": [
+        {
+          "$type": "SimpleCommandDefinition",
+          "Executable": {
+            "$type": "StringVariable",
+            "Value": "{{Build.bat}}",
+            "Name": ""
+          },
+          "Arguments": [
+            "-ProjectFiles",
+            "-project=\"{{UProject}}\"",
+            "-game",
+            "-rocket",
+            "-progress"
+          ],
+          "Variables": [],
+          "DisplayName": "Generate Project Files",
+          "DynamicDisplayName": "",
+          "ShortName": "",
+          "Tooltip": "",
+          "Role": "BuildTask",
+          "FailureMode": "StopOnFailure",
+          "Flags": "TopLevel",
+          "CustomApiRoute": "",
+          "CustomIcon": "",
+          "CustomColor": ""
+        },
+        {
+          "$type": "SimpleCommandDefinition",
+          "Executable": {
+            "$type": "StringVariable",
+            "Value": "{{Build.bat}}",
+            "Name": ""
+          },
+          "Arguments": [
+            "-Mode=Build",
+            "-project=\"{{UProject}}\"",
+            "Win64",
+            "{{BuildConfig}}",
+            "{{TargetType}}"
+          ],
+          "Variables": [
+            {
+              "$type": "SelectOneStringCommandInput",
+              "Options": [
+                "Game",
+                "Editor",
+                "Client",
+                "Server",
+                "Program"
+              ],
+              "DefaultValue": "Editor",
+              "DisplayName": "Target Type",
+              "Comment": "The target type to build",
+              "OptionName": "-TargetType",
+              "FormatString": "{{Name}}{{Delim}}{{Value}}",
+              "bOptionalValue": true,
+              "bMandatoryValue": false,
+              "Delimiter": "=",
+              "Flags": [],
+              "Name": "TargetType"
+            },
+            {
+              "$type": "SelectOneStringCommandInput",
+              "Options": [
+                "Debug",
+                "DebugGame",
+                "Development",
+                "Test",
+                "Shipping"
+              ],
+              "DefaultValue": "Development",
+              "DisplayName": "Build Config",
+              "Comment": "The build configuration for the target",
+              "OptionName": "-BuildConfig",
+              "FormatString": "{{Value}}",
+              "bOptionalValue": true,
+              "bMandatoryValue": false,
+              "Delimiter": "=",
+              "Flags": [],
+              "Name": "BuildConfig"
+            }
+          ],
+          "DisplayName": "Build Target",
+          "DynamicDisplayName": "Build {{BuildConfig}} {{TargetType}}",
+          "ShortName": "",
+          "Tooltip": "",
+          "Role": "BuildTask",
+          "FailureMode": "StopOnFailure",
+          "Flags": "",
+          "CustomApiRoute": "",
+          "CustomIcon": "",
+          "CustomColor": ""
+        },
+        {
+          "$type": "SimpleCommandDefinition",
+          "Executable": {
+            "$type": "StringVariable",
+            "Value": "[[Build Target]]",
+            "Name": ""
+          },
+          "Arguments": [
+            "-TargetType=Editor",
+            "-BuildConfig=Development"
+          ],
+          "Variables": [],
+          "DisplayName": "Build: Editor",
+          "DynamicDisplayName": "",
+          "ShortName": "",
+          "Tooltip": "",
+          "Role": "BuildTask",
+          "FailureMode": "StopOnFailure",
+          "Flags": "TopLevel",
+          "CustomApiRoute": "",
+          "CustomIcon": "🔨",
+          "CustomColor": ""
+        },
+        {
+          "$type": "SimpleCommandDefinition",
+          "Executable": {
+            "$type": "StringVariable",
+            "Value": "[[Build Target]]",
+            "Name": ""
+          },
+          "Arguments": [
+            "-TargetType=Game",
+            "-BuildConfig=Development"
+          ],
+          "Variables": [],
+          "DisplayName": "Build: Standalone",
+          "DynamicDisplayName": "",
+          "ShortName": "",
+          "Tooltip": "",
+          "Role": "BuildTask",
+          "FailureMode": "StopOnFailure",
+          "Flags": "TopLevel",
+          "CustomApiRoute": "",
+          "CustomIcon": "🔨",
+          "CustomColor": ""
+        },
+        {
+          "$type": "SimpleCommandDefinition",
+          "Executable": {
+            "$type": "StringVariable",
+            "Value": "{{RunUAT}}",
+            "Name": ""
+          },
+          "Arguments": [
+            "-Verbose",
+            "BuildCookRun",
+            "-project=\"{{UProject}}\"",
+            "-noP4",
+            "-UNATTENDED",
+            "-build",
+            "-clientconfig=Development",
+            "-stage",
+            "-pak",
+            "-compressed",
+            "-cook",
+            "-archive",
+            "-iterate",
+            "-iteratehash",
+            "-archivedirectory=\"{{ArchiveDir}}\""
+          ],
+          "Variables": [],
+          "DisplayName": "Package: Standalone",
+          "DynamicDisplayName": "",
+          "ShortName": "",
+          "Tooltip": "",
+          "Role": "BuildTask",
+          "FailureMode": "StopOnFailure",
+          "Flags": "TopLevel",
+          "CustomApiRoute": "",
+          "CustomIcon": "Package",
+          "CustomColor": "#223344"
+        },
+        {
+          "$type": "SimpleCommandDefinition",
+          "Executable": {
+            "$type": "StringVariable",
+            "Value": "{{ArchiveDir}}\\Windows\\MultiplayerDemoStandalone.exe",
+            "Name": ""
+          },
+          "Arguments": [
+            "ThirdPersonMap?listen",
+            "-port=7777",
+            "-game",
+            "-WINDOWED",
+            "-RESX=1080",
+            "-RESY=720",
+            "-log"
+          ],
+          "Variables": [],
+          "DisplayName": "Launch Game (Listen)",
+          "DynamicDisplayName": "",
+          "ShortName": "",
+          "Tooltip": "",
+          "Role": "LaunchProcess",
+          "FailureMode": "StopOnFailure",
+          "Flags": "TopLevel",
+          "CustomApiRoute": "",
+          "CustomIcon": "",
+          "CustomColor": ""
+        },
+        {
+          "$type": "SimpleCommandDefinition",
+          "Executable": {
+            "$type": "StringVariable",
+            "Value": "{{ArchiveDir}}\\Windows\\MultiplayerDemoStandalone.exe",
+            "Name": ""
+          },
+          "Arguments": [
+            "127.0.0.1:7777",
+            "-game",
+            "-WINDOWED",
+            "-RESX=1080",
+            "-RESY=720",
+            "-log"
+          ],
+          "Variables": [],
+          "DisplayName": "Launch Game (Client)",
+          "DynamicDisplayName": "",
+          "ShortName": "",
+          "Tooltip": "",
+          "Role": "LaunchProcess",
+          "FailureMode": "StopOnFailure",
+          "Flags": "TopLevel",
+          "CustomApiRoute": "",
+          "CustomIcon": "",
+          "CustomColor": ""
+        },
+        {
+          "$type": "SimpleCommandDefinition",
+          "Executable": {
+            "$type": "StringVariable",
+            "Value": "AutoBonk",
+            "Name": ""
+          },
+          "Arguments": [
+            "[[Generate Project Files]]",
+            "[[Build: Editor]]",
+            "[[Package: Standalone]]",
+            "Parallel",
+            "[[Launch Game (Listen)]]",
+            "[[Launch Game (Client)]]"
+          ],
+          "Variables": [],
+          "DisplayName": "Local Full Validation",
+          "DynamicDisplayName": "",
+          "ShortName": "",
+          "Tooltip": "",
+          "Role": "Sequence",
+          "FailureMode": "StopOnFailure",
+          "Flags": "TopLevel",
+          "CustomApiRoute": "",
+          "CustomIcon": "",
+          "CustomColor": ""
+        }
+      ],
+      "CommandGroups": [],
+      "bProvideDefaultLogDir": false
+    }
+  ],
+  "ExternalCommandCollections": [],
+  "ExternalCommandFolders": [],
+  "Variables": [
+    {
+      "$type": "PathVariable",
+      "bVerifyExists": true,
+      "Value": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine",
+      "Name": "EngineDir"
+    },
+    {
+      "$type": "PathVariable",
+      "bVerifyExists": true,
+      "Value": "{{EngineDir}}\\Binaries\\Win64\\UnrealEditor.exe",
+      "Name": "UnrealEditor"
+    },
+    {
+      "$type": "PathVariable",
+      "bVerifyExists": true,
+      "Value": "{{EngineDir}}\\Binaries\\Win64\\UnrealEditor-Cmd.exe",
+      "Name": "UnrealCmd"
+    },
+    {
+      "$type": "PathVariable",
+      "bVerifyExists": true,
+      "Value": "{{EngineDir}}\\Build\\BatchFiles\\Build.bat",
+      "Name": "Build.bat"
+    },
+    {
+      "$type": "PathVariable",
+      "bVerifyExists": true,
+      "Value": "{{EngineDir}}\\Build\\BatchFiles\\RunUAT.bat",
+      "Name": "RunUAT"
+    },
+    {
+      "$type": "PathVariable",
+      "bVerifyExists": true,
+      "Value": "{{WORKSPACE_DIR}}\\Saved\\AutoBonk",
+      "Name": "LOG_DIR"
+    },
+    {
+      "$type": "PathVariable",
+      "bVerifyExists": true,
+      "Value": "{{WORKSPACE_DIR}}\\MultiplayerDemo.uproject",
+      "Name": "UProject"
+    },
+    {
+      "$type": "PathVariable",
+      "bVerifyExists": true,
+      "Value": "{{WORKSPACE_DIR}}\\Saved\\Packages",
+      "Name": "ArchiveDir"
+    }
+  ],
+  "bProvideDefaultLogDir": true
+}
