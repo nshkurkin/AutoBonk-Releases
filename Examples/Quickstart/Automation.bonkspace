@@ -1,0 +1,49 @@
+{
+  "$type": "BonkWorkspace",
+  "CommandCollections": [
+    {
+      "$type": "CommandCollection",
+      "Title": "New Command Group",
+      "SerializationMethod": "JSON",
+      "OwningUser": "",
+      "Variables": [],
+      "Commands": [
+        {
+          "$type": "SimpleCommandDefinition",
+          "Executable": {
+            "$type": "StringVariable",
+            "Value": "cmd.exe",
+            "Name": ""
+          },
+          "Arguments": [
+            "/c \"echo Hello World!\""
+          ],
+          "Variables": [],
+          "DisplayName": "Hello World",
+          "DynamicDisplayName": "",
+          "ShortName": "",
+          "Tooltip": "",
+          "Role": "BuildTask",
+          "FailureMode": "StopOnFailure",
+          "Flags": "TopLevel",
+          "CustomApiRoute": "",
+          "CustomIcon": "",
+          "CustomColor": ""
+        }
+      ],
+      "CommandGroups": [],
+      "bProvideDefaultLogDir": false
+    }
+  ],
+  "ExternalCommandCollections": [],
+  "ExternalCommandFolders": [],
+  "Variables": [
+    {
+      "$type": "PathVariable",
+      "bVerifyExists": true,
+      "Value": "{{WORKSPACE_DIR}}/Logs",
+      "Name": "LOG_DIR"
+    }
+  ],
+  "bProvideDefaultLogDir": true
+}
