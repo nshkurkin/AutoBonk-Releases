@@ -16,4 +16,4 @@ Download: [📦 Win64 Direct Download Link](https://github.com/nshkurkin/AutoBon
 
 ![AutoBonk Drag-Drop Sequence](https://docs.ftlgoats.com/autobonk/_images/fig_sequencer_sequence.gif)
 
-Note: this tool is closed-source. This github repo is meant to store examples, releases, and other supplemental code and materials. Please read the [license](license.md) and [EULA](EULA.md) before using the application.
+Note: this tool is closed-source. This github repo is meant to store examples, releases, and other supplemental code and materials. Please read the [license](LICENSE.md) and [EULA](EULA.md) before using the application.
