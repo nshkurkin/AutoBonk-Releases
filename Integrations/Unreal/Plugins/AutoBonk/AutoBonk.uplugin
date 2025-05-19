@@ -1,0 +1,33 @@
+{
+	"FileVersion": 1,
+	"Version": 1,
+	"VersionName": "v0.1.1",
+	"FriendlyName": "AutoBonk Tools",
+	"Description": "AutoBonk Integration for Unreal Engine",
+	"Category": "Debug",
+	"CreatedBy": "FTL Goats Interactive LLC",
+	"CreatedByURL": "",
+	"DocsURL": "https://docs.ftlgoats.com/autobonk/index.html",
+	"MarketplaceURL": "https://github.com/nshkurkin/AutoBonk-Releases",
+	"SupportURL": "nshkurkin@ftlgoats.com",
+	"CanContainContent": false,
+	"IsBetaVersion": true,
+	"Installed": false,
+	"MajorVersion": "5",
+	"MinorVersion": "3",
+	"Modules": [
+		{
+			"Name": "AutoBonk",
+			"Type": "Runtime",
+			"LoadingPhase": "PostEngineInit"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "RemoteControl",
+			"Enabled": true
+		}
+	],
+	"IsExperimentalVersion": true,
+	"EnabledByDefault":  true
+}
