@@ -107,7 +107,7 @@ No failure to exercise, and no delay in exercising, on the part of either party,
 
 For general inquiries, complaints, questions, custom licensing, or claims concerning the Application, please contact:
 
-> FTL Goats Interactive LLC, 17 Shasta Dr., Rio Vista, California, USA 94571
-> Representative: Nikolai Shkurkin, nshkurkin@ftlgoats.com
+FTL Goats Interactive LLC, 17 Shasta Dr., Rio Vista, California, USA 94571
+Representative: Nikolai Shkurkin, nshkurkin@ftlgoats.com
 
 Last Updated: 05/19/2025
