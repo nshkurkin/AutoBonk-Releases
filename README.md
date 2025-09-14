@@ -1,4 +1,5 @@
-# AutoBonk
+
+# <img src="https://docs.ftlgoats.com/autobonk/_static/logo_zoomed.png" width="32"/> AutoBonk
 
 AutoBonk is a desktop tool for visually interacting with your project automation. It’s primary function is to execute scripts and save logs. You can extend the available commands defined in a workspace as well as have your own user commands that call your scripts or act as your scripts.
 
